@@ -11,18 +11,19 @@ $ yarn add verify-changelog
 ## Usage
 
 ```
-  Description
-    Verify that updates to the pkg.version in a commit are accompanied by a changelog entry.
+    Description
+      Verify that updates to the pkg.version in a commit are accompanied by a changelog entry.
 
-  Usage
-    $ verify-changelog [options]
+    Usage
+      $ verify-changelog [options]
 
-  Options
-    -i, --ignore-level    Ignore a version level (major | minor | patch | pre-release)
-    -w, --workspace       When set verify-changelog will look for a yarn workspace setup  (default false)
-    --warn-only           When verify-changelog finds a missing changelog entry, it will only warn and exit
-    -v, --version         Displays current version
-    -h, --help            Displays this message
+    Options
+      -i, --ignore-level    Ignore a version level (major | minor | patch | pre-release)
+      -w, --workspace       When set verify-changelog will look for a yarn workspace setup  (default false)
+      -s, --solo            Run this as a standalone CLI, just verify and prompt, no git stuff  (default false)
+      --warn-only           When verify-changelog finds a missing changelog entry, it will only warn and exit  (default false)
+      -v, --version         Displays current version
+      -h, --help            Displays this message
 ```
 
 If verify-changelog finds missing changelog entries, it will prompt for changelog entries to be added. Changes will be automatically staged following the prompt so they can be included in the commit.
@@ -39,9 +40,11 @@ Similar to caret ranges, `--ignore-level` will ignore the level and down. So if 
 
 Example:
 
+Suppose you have a package.json with a version of `1.1.0`.
+
 ```json
 {
-  "version": "1.2.0" // previously 1.1.0
+  "version": "1.2.0"
 }
 ```
 
@@ -61,6 +64,18 @@ When set verify-changelog will look for a yarn workspace setup. This is recommen
 
 verify-changelog will only look in `<your-workspace-dir>/**` for a CHANGELOG in these cases, as it assumes you are working with published packages.
 
+### `-s, --solo`
+
+Type: `boolean`
+
+Default: `false`
+
+Run this as a standalone CLI, just verify and prompt, no git stuff. Recommended for CI usage.
+
 ### `--warn-only`
+
+Type: `boolean`
+
+Default: `false`
 
 When verify-changelog finds a missing changelog entry, it will only warn and exit. This is useful if you want to run this check in a CI environment (though it is recommended that you still supply this as a githook, using the CI check as a confirmation). Warning will not prompt for Changelog entries.

@@ -12,6 +12,12 @@ sade('verify-changelog', true)
     'When set verify-changelog will look for a yarn workspace setup',
     false,
   )
+  .option('-s, --solo', 'Run this as a standalone CLI, just verify and prompt, no git stuff', false)
+  .option(
+    '--warn-only',
+    'When verify-changelog finds a missing changelog entry, it will only warn and exit',
+    false,
+  )
   .action((opts) => {
     console.log(opts);
   })
