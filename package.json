@@ -1,0 +1,37 @@
+{
+	"name": "verify-changelog",
+	"version": "0.1.0",
+	"private": false,
+	"description": "A githook designed to check if your changelog is updated when a package version is updated.",
+	"repository": "https://github.com/Renddslow/verify-changelog",
+	"license": "MIT",
+	"author": "Matt McElwee <mubatt@wyopub.com>",
+	"main": "dist/index.js",
+	"scripts": {},
+	"husky": {
+		"hooks": {
+			"pre-commit": "lint-staged"
+		}
+	},
+	"lint-staged": {
+		"*.{js,css,json,md,ts,tsx}": [
+			"prettier --write"
+		]
+	},
+	"prettier": "@dmsi/prettier-config",
+	"ava": {
+		"babel": false,
+		"compileEnhancements": false,
+		"concurrency": 4,
+		"extensions": [
+			"ts"
+		],
+		"files": [
+			"src/**/*.test.ts"
+		],
+		"require": [
+			"ts-node/register"
+		],
+		"timeout": "1m"
+	}
+}
