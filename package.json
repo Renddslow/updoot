@@ -1,37 +1,47 @@
 {
-	"name": "verify-changelog",
-	"version": "0.1.0",
-	"private": false,
-	"description": "A githook designed to check if your changelog is updated when a package version is updated.",
-	"repository": "https://github.com/Renddslow/verify-changelog",
-	"license": "MIT",
-	"author": "Matt McElwee <mubatt@wyopub.com>",
-	"main": "dist/index.js",
-	"scripts": {},
-	"husky": {
-		"hooks": {
-			"pre-commit": "lint-staged"
-		}
-	},
-	"lint-staged": {
-		"*.{js,css,json,md,ts,tsx}": [
-			"prettier --write"
-		]
-	},
-	"prettier": "@dmsi/prettier-config",
-	"ava": {
-		"babel": false,
-		"compileEnhancements": false,
-		"concurrency": 4,
-		"extensions": [
-			"ts"
-		],
-		"files": [
-			"src/**/*.test.ts"
-		],
-		"require": [
-			"ts-node/register"
-		],
-		"timeout": "1m"
-	}
+  "name": "verify-changelog",
+  "version": "0.1.0",
+  "private": false,
+  "description": "A githook designed to check if your changelog is updated when a package version is updated.",
+  "repository": "https://github.com/Renddslow/verify-changelog",
+  "license": "MIT",
+  "author": "Matt McElwee <mubatt@wyopub.com>",
+  "main": "dist/index.js",
+  "scripts": {},
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,css,json,md,ts,tsx}": [
+      "prettier --write"
+    ]
+  },
+  "prettier": "@dmsi/prettier-config",
+  "ava": {
+    "babel": false,
+    "compileEnhancements": false,
+    "concurrency": 4,
+    "extensions": [
+      "ts"
+    ],
+    "files": [
+      "src/**/*.test.ts"
+    ],
+    "require": [
+      "ts-node/register"
+    ],
+    "timeout": "1m"
+  },
+  "devDependencies": {
+    "@dmsi/prettier-config": "^1.3.0",
+    "@types/node": "^14.0.23",
+    "ava": "^3.10.1",
+    "husky": "^4.2.5",
+    "lint-staged": "^10.2.11",
+    "prettier": "^2.0.5",
+    "ts-node": "^8.10.2",
+    "typescript": "^3.9.6"
+  }
 }
