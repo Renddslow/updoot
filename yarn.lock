@@ -1395,6 +1395,11 @@ minimist@^1.2.0:
   resolved "https://registry.yarnpkg.com/minimist/-/minimist-1.2.5.tgz#67d66014b66a6a8aaa0c083c5fd58df4e4e97602"
   integrity sha512-FM9nNUYrRBAELZQT3xeZQ7fmMOBg6nWNmJKTcgsJeaLstP/UODVpGsr5OhXhhXg6f+qtJ8uiZ+PUxkDWcgIXLw==
 
+mri@^1.1.0:
+  version "1.1.5"
+  resolved "https://registry.yarnpkg.com/mri/-/mri-1.1.5.tgz#ce21dba2c69f74a9b7cf8a1ec62307e089e223e0"
+  integrity sha512-d2RKzMD4JNyHMbnbWnznPaa8vbdlq/4pNZ3IgdaGrVbBhebBsGUUE/6qorTMYNS6TwuH3ilfOlD2bf4Igh8CKg==
+
 ms@^2.1.1, ms@^2.1.2:
   version "2.1.2"
   resolved "https://registry.yarnpkg.com/ms/-/ms-2.1.2.tgz#d09d1f357b443f493382a8eb3ccd183872ae6009"
@@ -1769,6 +1774,13 @@ rxjs@^6.5.5:
   integrity sha512-3HMA8z/Oz61DUHe+SdOiQyzIf4tOx5oQHmMir7IZEu6TMqCLHT4LRcmNaUS0NwOz8VLvmmBduMsoaUvMaIiqzg==
   dependencies:
     tslib "^1.9.0"
+
+sade@^1.7.3:
+  version "1.7.3"
+  resolved "https://registry.yarnpkg.com/sade/-/sade-1.7.3.tgz#a217ccc4fb4abb2d271648bf48f6628b2636fa1b"
+  integrity sha512-m4BctppMvJ60W1dXnHq7jMmFe3hPJZDAH85kQ3ACTo7XZNVUuTItCQ+2HfyaMeV5cKrbw7l4vD/6We3GBxvdJw==
+  dependencies:
+    mri "^1.1.0"
 
 safe-buffer@~5.1.1:
   version "5.1.2"

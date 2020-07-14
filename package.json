@@ -7,7 +7,11 @@
   "license": "MIT",
   "author": "Matt McElwee <mubatt@wyopub.com>",
   "main": "dist/index.js",
-  "scripts": {},
+  "scripts": {
+    "build": "tsc -d",
+    "test": "ava",
+    "ex": "node dist/index.js"
+  },
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged"
@@ -20,8 +24,6 @@
   },
   "prettier": "@dmsi/prettier-config",
   "ava": {
-    "babel": false,
-    "compileEnhancements": false,
     "concurrency": 4,
     "extensions": [
       "ts"
@@ -43,5 +45,8 @@
     "prettier": "^2.0.5",
     "ts-node": "^8.10.2",
     "typescript": "^3.9.6"
+  },
+  "dependencies": {
+    "sade": "^1.7.3"
   }
 }
