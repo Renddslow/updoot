@@ -1,6 +1,6 @@
 # updoot
 
-> A githook designed to remind you to update your changelog and move released changes into a release entrys.
+> A githook designed to remind you to update your changelog and move released changes into a release entries.
 
 ## Install
 

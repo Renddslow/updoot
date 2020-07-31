@@ -2,7 +2,7 @@
   "name": "updoot",
   "version": "0.1.0",
   "private": false,
-  "description": "A githook designed to check if your changelog is updated when a package version is updated.",
+  "description": "A githook designed to remind you to update your changelog and move released changes into a release entries.",
   "repository": "https://github.com/Renddslow/verify-changelog",
   "license": "MIT",
   "author": "Matt McElwee <mubatt@wyopub.com>",
@@ -11,6 +11,9 @@
     "build": "tsc -d",
     "test": "ava",
     "ex": "node dist/index.js"
+  },
+  "bin": {
+    "updoot": "dist/index.js"
   },
   "husky": {
     "hooks": {
@@ -44,10 +47,26 @@
     "lint-staged": "^10.2.11",
     "prettier": "^2.0.5",
     "ts-node": "^8.10.2",
-    "typescript": "^3.9.6"
+    "typescript": "^3.9.6",
+    "unified": "^9.1.0"
   },
   "dependencies": {
+    "dot-prop": "^5.2.0",
+    "globby": "^11.0.1",
+    "kleur": "^4.0.2",
+    "multimatch": "^4.0.0",
+    "ora": "^4.0.5",
     "read-pkg-up": "^7.0.1",
+    "remark-parse": "^8.0.3",
+    "remark-stringify": "^8.1.1",
     "sade": "^1.7.3"
-  }
+  },
+  "keywords": [
+    "git",
+    "githook",
+    "changelog",
+    "keep-a-changelog",
+    "reminder",
+    "cli"
+  ]
 }
