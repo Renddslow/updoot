@@ -10,6 +10,10 @@ import ora from 'ora';
 import getValidWorkspaceFiles from './getValidWorkspaceFiles';
 import hasChangelog from './hasChangelog';
 import getChangelogPaths from './getChangelogPaths';
+import getUnreleasedBlock from '../utils/getUnreleasedBlock';
+import changelogTextToObject from './changelogTextToObject';
+import mergeChangelogObjects from './mergeChangelogObjects';
+import changelogObjectToText from './changelogObjectToText';
 
 const read = promisify(fs.readFile);
 
@@ -48,7 +52,6 @@ export default async (
   );
   const changelogPaths = await getChangelogPaths(missingChangelogs, pattern);
 
-  // TODO: spruce this up
   const plural = changelogPaths.length > 1;
   console.log(
     kleur.bold(
@@ -127,11 +130,17 @@ export default async (
   console.clear();
   const spinner = ora('Merging and saving changelogs...').start();
 
-  console.log(changelogs);
   await Promise.all(
     Object.keys(changelogs).map(async (k) => {
-      const content = (await read(k)).toString();
-      console.log(content);
+      const originalChangelog = (await read(k)).toString();
+
+      // Extract unreleased block and merge it with the new logs
+      const original = changelogTextToObject(getUnreleasedBlock(originalChangelog));
+      const updated = changelogTextToObject(changelogs[k].join('\n'));
+      const unreleasedBlock = mergeChangelogObjects(original, updated);
+
+      // Convert the block back to text
+      const unreleasedStr = changelogObjectToText(unreleasedBlock);
     }),
   );
 
