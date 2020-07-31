@@ -36,8 +36,6 @@ export default (content: string): string => {
     }
   }
 
-  console.log(document);
-
   document.children = unreleasedTree;
 
   // @ts-ignore

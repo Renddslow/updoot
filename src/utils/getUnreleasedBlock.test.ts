@@ -39,3 +39,27 @@ test(`getUnreleasedBlock - returns a Changelog string with just the contents of 
 
   t.is(getUnreleasedBlock(input), expected.trim() + '\n');
 });
+
+test('getUnreleasedBlock - returns unreleased block regardless of frontmatter', (t) => {
+  const input = `
+# Changelog
+
+This document tracks all the changes since we started.
+
+## [Unreleased]
+
+### Added
+
+- Humans
+- A nifty garden
+  `;
+
+  const expected = `
+### Added
+
+-   Humans
+-   A nifty garden  
+  `;
+
+  t.is(getUnreleasedBlock(input), expected.trim() + '\n');
+});
