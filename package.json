@@ -10,7 +10,8 @@
   "scripts": {
     "build": "tsc -d",
     "test": "ava",
-    "try": "node dist/index.js"
+    "try": "node dist/index.js",
+    "prepublishOnly": "yarn build"
   },
   "bin": {
     "updoot": "dist/index.js"
