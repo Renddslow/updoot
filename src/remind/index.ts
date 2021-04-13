@@ -15,12 +15,13 @@ export default async (
   pkg: PackageJson,
   pattern: string = 'changelog*',
 ) => {
+  const filesLocalized = files.map((f) => f.replace(`${process.cwd()}/`, ''));
   const filteredFiles = workspaces
-    ? getValidWorkspaceFiles(files, <Array<string>>pkg.workspaces, ignore.split(','))
+    ? getValidWorkspaceFiles(filesLocalized, <Array<string>>pkg.workspaces, ignore.split(','))
     : {
         _: {
           name: '@root',
-          files,
+          files: filesLocalized,
         },
       };
 
