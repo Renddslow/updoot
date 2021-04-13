@@ -1,6 +1,6 @@
 {
   "name": "updoot",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "private": false,
   "description": "A githook designed to remind you to update your changelog and move released changes into a release entries.",
   "repository": "https://github.com/Renddslow/verify-changelog",
