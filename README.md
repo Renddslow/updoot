@@ -28,3 +28,9 @@ This was designed to work in conjunction with husky and lint-staged. However, yo
 ```
 
 ## Options
+
+Since this is intended to be used with git and lint-staged, you may also provide an ENV argument to skip updoot when needed.
+
+```
+$ SKIP_UPDOOT=true git commit -m "Added a comma to a comment"
+```
