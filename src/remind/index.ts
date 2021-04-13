@@ -15,6 +15,11 @@ export default async (
   pkg: PackageJson,
   pattern: string = 'changelog*',
 ) => {
+  if (process.env.SKIP_UPDOOT && process.env.SKIP_UPDOOT === 'true') {
+    console.log(kleur.gray('Skipping updoot'));
+    process.exit(0);
+  }
+
   const filesLocalized = files.map((f) => f.replace(`${process.cwd()}/`, ''));
   const filteredFiles = workspaces
     ? getValidWorkspaceFiles(filesLocalized, <Array<string>>pkg.workspaces, ignore.split(','))

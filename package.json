@@ -56,10 +56,7 @@
     "globby": "^11.0.1",
     "kleur": "^4.0.2",
     "multimatch": "^4.0.0",
-    "ora": "^4.0.5",
     "read-pkg-up": "^7.0.1",
-    "remark-parse": "^8.0.3",
-    "remark-stringify": "^8.1.1",
     "sade": "^1.7.3"
   },
   "keywords": [
