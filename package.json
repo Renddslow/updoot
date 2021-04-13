@@ -10,7 +10,7 @@
   "scripts": {
     "build": "tsc -d",
     "test": "ava",
-    "ex": "node dist/index.js"
+    "try": "node dist/index.js"
   },
   "bin": {
     "updoot": "dist/index.js"

@@ -27,6 +27,7 @@ interface Sade {
       'Whether or not updoot should look for changelogs in yarn workspaces',
       false,
     )
+    .option('--warn', 'Print to stdout without an exit(1) when changelogs are missing.', false)
     .option(
       '-i, --ignore-pkgs',
       'When in a monorepo context, a comma-delimited list of packages to ignore',
@@ -36,9 +37,17 @@ interface Sade {
       'A case-insensitive wildcard pattern describing the filename of changelogs',
       'changelog*',
     )
-    .describe('')
+    .describe(
+      'Checks to see if a Changelog is present in the list of changed files and alerts if one is not present.',
+    )
     .action(async (opts) =>
-      remind(opts._, opts.w, opts.i || '', (await pkgUp({ cwd: process.cwd() })).packageJson),
+      remind(
+        opts._,
+        opts.w,
+        opts.warn,
+        opts.i || '',
+        (await pkgUp({ cwd: process.cwd() })).packageJson,
+      ),
     );
 
   prog.parse(process.argv);
