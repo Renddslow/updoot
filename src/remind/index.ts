@@ -20,6 +20,8 @@ export default async (
     process.exit(0);
   }
 
+  console.log(files);
+
   const filesLocalized = files.map((f) => f.replace(`${process.cwd()}/`, ''));
   const filteredFiles = workspaces
     ? getValidWorkspaceFiles(filesLocalized, <Array<string>>pkg.workspaces, ignore.split(','))
